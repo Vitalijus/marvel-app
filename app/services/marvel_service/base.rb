@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 module MarvelService
   class Base
     def public_key
@@ -12,9 +14,16 @@ module MarvelService
       ENV.fetch("MARVEL_BASE_URL")
     end
 
+    def timestamp
+      Time.now.strftime("%Y%m%d")
+    end
+
+    def md5_encrypt
+      Digest::MD5.hexdigest(timestamp+private_key+public_key)
+    end
+
     def comics_endpoint
-      # binding.pry
-      base_url + ":443/v1/public/comics?apikey=#{private_key}"
+      base_url + "ts=#{timestamp}&apikey=#{public_key}&hash=#{md5_encrypt}"
     end
   end
 end
