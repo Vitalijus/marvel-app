@@ -1,28 +1,32 @@
 module MarvelService
   class Marvel < MarvelService::Base
-    attr_accessor :errors, :results
+    attr_accessor :errors
 
-    def initialize(search)
-      @search = search
-    end
-
-    def request_marvel
-      HTTP.get(comics_endpoint + "&title=#{@search}")
+    def request_marvel(offset)
+      HTTP.get(comics_endpoint + "&limit=100&offset=#{offset}")
     rescue HTTP::Error => e
       Rails.logger.error("Unexpected response: #{e.message}")
       {}
     end
 
-    def response
-      response = request_marvel.parse["data"]["results"]
+    def response(offset=0)
+      response = request_marvel(offset).parse
 
-      if response.blank?
+      if response["data"]["results"].blank?
         @errors = "No results"
       else
-        @results = response
+        response["data"]["results"].each do |result|
+          puts result["id"]
+        end
       end
+
+      recall(response["data"]["offset"], response["data"]["count"])
     end
 
     private
+
+    def recall(offset, count)
+      send(:response, offset + 100) unless count < 100
+    end
   end
 end
