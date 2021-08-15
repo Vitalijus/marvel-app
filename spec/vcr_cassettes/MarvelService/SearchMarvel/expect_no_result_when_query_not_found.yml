@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://gateway.marvel.com/v1/public/comics?apikey=07e3e205bebd46de31d15ee9a76d85c2&hash=594dd7c6299a2200db7995ba4860d077&title=superman&ts=20210815
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - gateway.marvel.com
+      User-Agent:
+      - http.rb/4.4.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Etag:
+      - 79ef3436d0dc139b17693635b99776556e29f495
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '323'
+      Date:
+      - Sun, 15 Aug 2021 14:10:32 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"code":200,"status":"Ok","copyright":"© 2021 MARVEL","attributionText":"Data
+        provided by Marvel. © 2021 MARVEL","attributionHTML":"<a href=\"http://marvel.com\">Data
+        provided by Marvel. © 2021 MARVEL</a>","etag":"79ef3436d0dc139b17693635b99776556e29f495","data":{"offset":0,"limit":20,"total":0,"count":0,"results":[]}}'
+  recorded_at: Sun, 15 Aug 2021 14:06:17 GMT
+recorded_with: VCR 6.0.0
