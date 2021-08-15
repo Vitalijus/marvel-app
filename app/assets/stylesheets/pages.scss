@@ -1,3 +1,83 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #2B2B2B;
+}
+
+.marvel-content-container {
+  padding-top: 100px;
+}
+
+.marvel-header-container {
+  width: 100%;
+  background-color: #c93730;
+  position: fixed;
+  margin-top: -100px;
+  z-index: 999999;
+}
+
+.marvel-header-navigation {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 10px 0;
+}
+
+.marvel-header-logo {
+  text-align: center;
+}
+
+.marvel-header-search {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.marvel-comics-list-container {
+  margin: 0px auto;
+  max-width: 1180px;
+}
+
+.marvel-comics-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.marvel-comics-list li {
+  position: relative;
+  width: 225px;
+  height: 330px;
+  float: left;
+  margin: 5px;
+  overflow: hidden;
+}
+
+.marvel-list-item {
+  position: relative;
+}
+
+.marvel-list-item-title {
+  width: calc(100% - 10px);
+  position: absolute;
+  bottom: 0;
+  background-color: #ffffff;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Verdana;
+}
+
+.marvel-list-item-image {
+  height: 330px;
+}
+
+.marvel-errors {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-family: Verdana;
+}

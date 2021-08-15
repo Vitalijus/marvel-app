@@ -1,2 +1,19 @@
-<%= render "partials/search" %>
-<%= render "partials/comics_list" %>
+<div class="marvel-content-container">
+  <div class="marvel-header-container">
+    <div class="marvel-header-navigation">
+      <div class="marvel-header-logo">
+        <%= link_to root_url do %>
+          <%= image_tag "marvel_logo.png", width: 100 %>
+        <% end %>
+      </div>
+
+      <div class="marvel-header-search">
+        <%= render "partials/search" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="marvel-comics-list-container">
+    <%= render "partials/comics_list" %>
+  </div>
+</div>

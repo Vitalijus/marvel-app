@@ -3,19 +3,19 @@
     <%= @errors %>
   </div>
 <% else %>
-  <div class="marvel-container">
+  <div class="marvel-comics-list">
     <ul>
       <% @results.each do |comic| %>
       <li>
-        <%= comic["id"] %>
-      </li>
+        <div class="marvel-list-item">
+          <div class="marvel-list-item-title">
+            <%= comic["title"] %>
+          </div>
 
-      <li>
-        <%= image_tag(cover_thumbnail_helper(comic["thumbnail"]["path"], comic["thumbnail"]["extension"]), width: 100) %>
-      </li>
-
-      <li>
-        <%= comic["title"] %>
+          <div class="marvel-list-item-image">
+            <%= image_tag(cover_thumbnail_helper(comic["thumbnail"]["path"], comic["thumbnail"]["extension"]), width: 225) %>
+          </div>
+        </div>
       </li>
       <% end %>
     </ul>
