@@ -1,0 +1,23 @@
+<% if @errors.present? %>
+  <div class="marvel-errors">
+    <%= @errors %>
+  </div>
+<% else %>
+  <div class="marvel-container">
+    <ul>
+      <% @results.each do |comic| %>
+      <li>
+        <%= comic["id"] %>
+      </li>
+
+      <li>
+        <%= image_tag(cover_thumbnail_helper(comic["thumbnail"]["path"], comic["thumbnail"]["extension"]), width: 100) %>
+      </li>
+
+      <li>
+        <%= comic["title"] %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

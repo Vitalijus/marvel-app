@@ -1,9 +1,13 @@
 module MarvelService
-  class Marvel < MarvelService::Base
+  class SearchMarvel < MarvelService::Base
     attr_accessor :errors, :results
 
+    def initialize(search)
+      @search = "&title=#{search}"
+    end
+
     def request_marvel
-      HTTP.get(comics_endpoint)
+      HTTP.get(comics_endpoint + @search)
     rescue HTTP::Error => e
       Rails.logger.error("Unexpected response: #{e.message}")
       {}
